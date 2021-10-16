@@ -1,0 +1,28 @@
+#icon {
+    width: 8%;
+    margin: 0% 2%;
+}
+
+nav>img,
+input,
+button {
+    display: inline-block;
+    vertical-align: top;
+}
+
+nav>input {
+    height: 35px;
+    width: 40%;
+    margin: 1% 0% 0% 10%;
+}
+
+nav>button {
+    height: 35px;
+    width: 5%;
+    margin-top: 1%;
+}
+#show{
+    display: grid;
+    grid-template-columns: repeat(4,23%);
+    gap: 2%;
+}
