@@ -1,0 +1,103 @@
+*{
+    font-family: 'Lato', sans-serif;
+}
+body{
+    background-color: rgb(121, 121, 121);
+}
+#navbar{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 5px;
+    height: 75px;
+    margin-bottom: 15px;
+    position: sticky;
+    border: solid 1px;
+    top: 0;
+    background-color: orangered;
+}
+#option{
+    display: flex;
+    justify-content: space-between; 
+}
+#option>h3{
+    padding-left: 20px;
+   padding-right: 10px;
+}
+#inp{
+    width: 500px; height: 30px;
+    margin-left: 100px;
+}
+#btn{
+    width: 60px; height: 35px;
+}
+a{
+    text-decoration:none;
+}
+#sug{
+    margin-left: 100px;
+    margin-right: 65px;
+    background-color:rgb(155, 155, 155);
+    color: black;
+    max-height: 300px;
+    overflow: hidden;
+    padding-left: 5%;
+}
+.sugestion:hover{
+    background-color: black;
+    color: whitesmoke;
+}
+#sug>p{
+    margin: 0px;
+}
+#prod{
+    display: grid;
+    grid-template-columns: repeat(4,20%);
+    column-gap: 3%;
+    row-gap: 2%;
+    justify-content: center;
+}
+#devd{
+    margin:0% 3% 2% 3%;
+    padding: 1% 2%;
+    background-color: rgb(155, 155, 155);
+}
+.box{
+    text-align: center;
+    background-color: rgb(155, 155, 155);
+    border-radius: 2%;
+}
+.box>img{
+    max-width: 250px; 
+}
+.mainbox1{
+    display: grid;
+    grid-template-columns: 1fr .5fr;
+}
+.mainbox2{
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    column-gap: 10%;
+}
+.box1{
+    text-align: center;
+    font-size: 24px;
+}
+.box1>h1{
+    color: white;
+}
+.box2>img{
+    width: 400px;
+}
+#d{
+    color: whitesmoke;
+}
+#description{
+    font-size: 30px;
+}
+.box3{
+    text-align: right;
+}
+.box4{
+    text-align: left;
+}

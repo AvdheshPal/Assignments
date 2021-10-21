@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="navbar"></div>
+    <div id="item"></div>
+    <div id="prod"></div>
+</body>
+
+</html>
+<script type="module">
+    import navbar from "../Import Export/navbar.js";
+    let navb = document.getElementById("navbar")
+    navb.innerHTML = navbar()
+
+    let item = document.getElementById("item")
+
+    async function getdata() {
+        try {
+            let res = await fetch(`https://www.themealdb.com/api/json/v1/1/categories.php`)
+
+            let data = await res.json()
+
+            showprod(data.categories)
+
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+
+    getdata()
+
+    let parent = document.getElementById("prod")
+
+    function showprod(arr) {
+        arr.forEach(({ idCategory, strCategory, strCategoryDescription, strCategoryThumb }) => {
+
+            let name = document.createElement("h1")
+            name.textContent = strCategory
+
+            let image = document.createElement("img")
+            image.src = strCategoryThumb
+
+            let div = document.createElement("div")
+            div.setAttribute("class", "box")
+            div.onclick = () => {
+                func(strCategory, strCategoryDescription, strCategoryThumb)
+            }
+
+            div.append(image, name)
+
+            parent.append(div)
+        });
+    }
+
+    function func(strCategory, strCategoryDescription, strCategoryThumb) {
+        
+        let name = document.createElement("h1")
+        name.textContent = strCategory
+
+        let image = document.createElement("img")
+        image.src = strCategoryThumb
+
+        let des = document.createElement("h3")
+        des.textContent=strCategoryDescription
+
+        let div = document.createElement("div")
+        div.setAttribute("id","devd")
+
+        div.append(name,image,des)
+
+        item.innerHTML=null
+        item.append(div)
+    }
+
+    async function searchdata(names) {
+
+        try {
+            let res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${names}`);
+
+            var data = await res.json()
+
+            return data
+
+        }
+
+        catch (e) {
+            console.log(e);
+        }
+
+    }
+
+    let inp = document.getElementById("inp")
+    inp.oninput = () => {
+        debouncing()
+    }
+
+    async function main() {
+        let names = inp.value
+        let datas = await searchdata(names)
+
+        suggest(datas.meals)
+    }
+
+    let timerid;
+    function debouncing() {
+        if (timerid) {
+            clearTimeout(timerid)
+        }
+        timerid = setTimeout(() => {
+            main()
+        }, 500);
+    }
+
+    let sug = document.getElementById("sug")
+
+    function suggest(e) {
+        sug.innerHTML = null
+        e.forEach((e) => {
+            let nam = document.createElement("p")
+            nam.textContent = e.strMeal
+            nam.setAttribute("class", "sugestion")
+            nam.onclick = () => got(e)
+            sug.append(nam)
+        })
+    }
+
+    
+
+    function got(e) {
+        sug.innerHTML = null
+        parent.innerHTML = null
+        item.innerHTML = null
+
+        console.log(e);
+
+        let dish = document.createElement("h1")
+        dish.textContent = e.strMeal
+
+        let area = document.createElement("h2")
+        area.textContent = "Country: " + e.strArea
+
+        let cat = document.createElement("h2")
+        cat.textContent = "Category: " + e.strCategory
+
+        let box1 = document.createElement("div")
+        box1.setAttribute("class", "box1")
+
+        box1.append(dish, area, cat)
+
+        let image = document.createElement("img")
+        image.src = e.strMealThumb
+        image.setAttribute("class", "image")
+
+        let box2 = document.createElement("div")
+        box2.setAttribute("class", "box2")
+        box2.append(image)
+
+        let d = document.createElement("h1")
+        d.textContent = "Description :"
+        d.setAttribute("id", "d")
+
+        let description = document.createElement("p")
+        description.textContent = e.strInstructions
+        description.setAttribute("id", "description")
+
+        let box3 = document.createElement("div")
+        box3.setAttribute("class", "box3")
+        box3.textContent = "Ingredients"
+
+        let ind1 = document.createElement("h3")
+        ind1.textContent = e.strIngredient1
+        let ind2 = document.createElement("h3")
+        ind2.textContent = e.strIngredient2
+        let ind3 = document.createElement("h3")
+        ind3.textContent = e.strIngredient3
+        let ind4 = document.createElement("h3")
+        ind4.textContent = e.strIngredient4
+        let ind5 = document.createElement("h3")
+        ind5.textContent = e.strIngredient5
+        let ind6 = document.createElement("h3")
+        ind6.textContent = e.strIngredient6
+        let ind7 = document.createElement("h3")
+        ind7.textContent = e.strIngredient7
+        let ind8 = document.createElement("h3")
+        ind8.textContent = e.strIngredient8
+        let ind9 = document.createElement("h3")
+        ind9.textContent = e.strIngredient9
+        let ind10 = document.createElement("h3")
+        ind10.textContent = e.strIngredient10
+        let ind11 = document.createElement("h3")
+        ind11.textContent = e.strIngredient11
+        let ind12 = document.createElement("h3")
+        ind12.textContent = e.strIngredient12
+        let ind13 = document.createElement("h3")
+        ind13.textContent = e.strIngredient13
+
+        box3.append(ind1, ind2, ind3, ind4, ind5, ind6, ind7, ind8, ind9, ind10, ind11, ind12, ind13)
+
+        let box4 = document.createElement("div")
+        box4.setAttribute("class", "box4")
+        box4.textContent = "Measure"
+
+        let q1 = document.createElement("h3")
+        q1.textContent = e.strMeasure1
+        let q2 = document.createElement("h3")
+        q2.textContent = e.strMeasure2
+        let q3 = document.createElement("h3")
+        q3.textContent = e.strMeasure3
+        let q4 = document.createElement("h3")
+        q4.textContent = e.strMeasure4
+        let q5 = document.createElement("h3")
+        q5.textContent = e.strMeasure5
+        let q6 = document.createElement("h3")
+        q6.textContent = e.strMeasure6
+        let q7 = document.createElement("h3")
+        q7.textContent = e.strMeasure7
+        let q8 = document.createElement("h3")
+        q8.textContent = e.strMeasure8
+        let q9 = document.createElement("h3")
+        q9.textContent = e.strMeasure9
+        let q10 = document.createElement("h3")
+        q10.textContent = e.strMeasure10
+        let q11 = document.createElement("h3")
+        q11.textContent = e.strMeasure11
+        let q12 = document.createElement("h3")
+        q12.textContent = e.strMeasure12
+        let q13 = document.createElement("h3")
+        q13.textContent = e.strMeasure13
+
+        box4.append(q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13)
+
+        let mainbox1 = document.createElement("div")
+        mainbox1.setAttribute("class", "mainbox1")
+
+        let mainbox2 = document.createElement("div")
+        mainbox2.setAttribute("class", "mainbox2")
+
+        mainbox1.append(box1, box2)
+        mainbox2.append(box3, box4)
+
+        item.append(mainbox1, d, description, mainbox2)
+    }
+
+    navb.onclick = () => {
+        sug.innerHTML = null
+    }
+    parent.onclick = () => {
+        sug.innerHTML = null
+    }
+</script>
