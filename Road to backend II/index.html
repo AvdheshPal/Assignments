@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="add">
+        <h1>POST</h1>
+        <input type="number" id="id" placeholder="Id" /><br><br>
+        <input type="text" id="name" placeholder="Name" /><br><br>
+        <input type="number" id="price" placeholder="Price" /><br><br>
+        <button onclick="addProduct()">Add Product</button><br><br>
+    </div>
+    <div id="delet">
+        <h1>DELET</h1>
+        <input type="text" placeholder="Enter Id Here" id="delId"><br><br>
+        <button onclick="fundelet()">DELET</button><br><br>
+    </div>
+    <div id="put">
+        <h1>PUT</h1>
+        <input type="number" id="putid" placeholder="Enter Id here">
+        <input type="text" id="putname" placeholder="change name">
+        <input type="number" id="putprice" placeholder="change price">
+        <input type="text" id="putactive" placeholder="change active">
+        <button onclick="funput()">PUT</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
