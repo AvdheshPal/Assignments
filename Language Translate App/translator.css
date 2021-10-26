@@ -1,0 +1,45 @@
+*{
+    font-family: sans-serif;
+}
+body{
+    background-color: rgb(243,243,243);
+}
+#flex{
+    display: flex;
+    column-gap: 30px;
+    /* margin-left: 1%; */
+}
+#output{
+    width: 680px; height: 450px;
+    border: 1px solid;
+    overflow: scroll;
+    background-color: white;    
+}
+#heading{
+    margin-left: 33%;
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 5px;
+    display: inline-block;
+    
+}
+#from{
+     margin-bottom: 2%;
+     color: tomato;
+}
+#to{
+    margin-left: 70%;
+    margin-bottom: 2%;
+    color: tomato;
+    margin-top: 18px;
+}
+#btn{
+    margin-left: 5%;
+    background-color: transparent;
+    border-color: white;
+    border-color: transparent;
+}
+#btn:hover{
+    background-color: tomato;
+    border-radius: 25%;
+}
