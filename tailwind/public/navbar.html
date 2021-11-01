@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-yellow-50">
+    <nav class="bg-red-600 items-center fixed w-full h-24 md:h-28 ">
+        <div class="flex items-center justify-between h-28">
+            <div class="hidden md:block justify-between items-center ">
+                <a href="#" class="p-2 bg-yellow-600 ml-4 mr-1">Home</a>
+                <a href="#" class="p-2 bg-yellow-600 mr-1">Blog</a>
+                <a href="#" class="p-2 bg-yellow-600">Content</a>
+            </div>
+            <!-- menu bar -->
+            <div class="ml-4 md:hidden">
+                <button onclick="apend()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+                      </svg>
+                </button>
+            </div>
+            <input type="text" placeholder="    Search.. "  class="w-3/5 h-10 rounded-full">
+            <div>
+                <button class="bg-yellow-600 p-2 mr-4">Search</button>
+            </div>
+        </div>
+    </nav>
+    <div  id="mobilemenu" class="fixed bg-yellow-700 h-80 w-60 mt-24 md:mt-28 hidden">
+        <a href="#" class="p-2 block">Home</a>
+        <a href="#" class="p-2 block ">Blog</a>
+        <a href="#" class="p-2 block">Content</a>        
+    </div>
+    <img src="https://media.istockphoto.com/photos/smilie-young-woman-in-green-jacket-picture-id529986158" alt="">
+    <h1 class="text-20xl">kjkjklkhkhkkkj</h1>
+</body>
+</html>
+
+<script>
+    function apend () {
+        let mobilemenu = document.getElementById("mobilemenu")
+        if(mobilemenu.getAttribute('class') === 'hidden') {
+            mobilemenu.setAttribute('class','block fixed bg-yellow-700 h-80 w-60 mt-24 md')
+        }
+        else{
+            mobilemenu.setAttribute('class','hidden')
+        }
+    }
+</script>

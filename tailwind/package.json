@@ -1,0 +1,17 @@
+{
+  "name": "tailwind",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss build src/style.css -o public/style.css",
+    "prod": "NODE_ENV=production npx tailwindcss build src/style.css -o public/style.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "tailwindcss": "^2.2.19",
+    "win-node-env": "^0.4.0"
+  }
+}
